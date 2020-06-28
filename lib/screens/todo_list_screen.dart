@@ -26,50 +26,66 @@ class _TodoListScreenState extends State<TodoListScreen> {
     });
   }
 
+  _deleteTask(int id){
+    setState(() {
+      DatabaseHelper.instance.deleteTask(id);
+      _updateTaskList();
+    });
+  }
+
   Widget _buildTask(Task task){
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25.0),
-      child: Column(
-        children: <Widget>[
-          ListTile(
-            title: Text(task.title, 
-                style: TextStyle(
-                    fontSize: 18.0,
-                    decoration: task.status == 0 
-                          ? TextDecoration.none 
-                          : TextDecoration.lineThrough,
-                ),
+    return Dismissible(
+          child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 25.0),
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              title: Text(task.title, 
+                  style: TextStyle(
+                      fontSize: 18.0,
+                      decoration: task.status == 0 
+                            ? TextDecoration.none 
+                            : TextDecoration.lineThrough,
+                  ),
+              ),
+              subtitle: Text('${_dateFormatter.format( task.date)} + ${task.priority}',
+                      style: TextStyle(
+                      fontSize: 15.0,
+                      decoration: task.status == 0 
+                            ? TextDecoration.none 
+                            : TextDecoration.lineThrough,
+                  ),
+              ),
+              trailing: Checkbox( 
+                  onChanged: (value){
+                        task.status = value ? 1 : 0;
+                        DatabaseHelper.instance.updateTask(task);
+                        _updateTaskList();
+                  },
+                  activeColor: Theme.of(context).primaryColor,
+                  value:  task.status == 1 ? true : false,
+                  ),
+                  onTap: ( ) => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => AddTaskScreen(
+                        updateTaskList: _updateTaskList,
+                        task: task,
+                      ),
+                    ),  
+                  ),
             ),
-            subtitle: Text('${_dateFormatter.format( task.date)} + ${task.priority}',
-                    style: TextStyle(
-                    fontSize: 15.0,
-                    decoration: task.status == 0 
-                          ? TextDecoration.none 
-                          : TextDecoration.lineThrough,
-                ),
-            ),
-            trailing: Checkbox( 
-                onChanged: (value){
-                      task.status = value ? 1 : 0;
-                      DatabaseHelper.instance.updateTask(task);
-                      _updateTaskList();
-                },
-                activeColor: Theme.of(context).primaryColor,
-                value:  task.status == 1 ? true : false,
-                ),
-                onTap: ( ) => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => AddTaskScreen(
-                      updateTaskList: _updateTaskList,
-                      task: task,
-                    ),
-                  ),  
-                ),
-          ),
-          Divider(),
-        ],
+            Divider(),
+          ],
+        ),
       ),
-    );
+      key: Key(task.title),
+      background: Container(
+              color: Colors.red.withOpacity(0.2),
+            ),
+            onDismissed: (direction) {
+              _deleteTask(task.id);
+            },
+          );
   }
 
 
