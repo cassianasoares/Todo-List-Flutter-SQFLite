@@ -29,4 +29,6 @@ Simple and elegant Todo List App in Flutter with Sqflite.
 # Features
 
 - Add, update and delete task
+- Choose date to complete
+- Choose Priority
 - Mark as done
