@@ -7,11 +7,11 @@
 Simple and elegant Todo List App in Flutter with Sqflite.
 
 <p align"center">
-<img src="https://user-images.githubusercontent.com/57958790/86683511-ffe08700-bfd7-11ea-9ea9-b1927f7cdf79.png" width="360" height="600" />
-<img src="https://user-images.githubusercontent.com/57958790/86683619-1ab2fb80-bfd8-11ea-8f44-a57d7de7167c.png" width="360" height="600" />
-<img src="https://user-images.githubusercontent.com/57958790/86683770-42a25f00-bfd8-11ea-9d3e-d1688b99e7c8.png" width="360" height="600" />
-<img src="https://user-images.githubusercontent.com/57958790/86683693-2e5e6200-bfd8-11ea-89f6-82286d7f7bf4.png" width="360" height="600" />
-<img src="https://user-images.githubusercontent.com/57958790/86683930-6fef0d00-bfd8-11ea-84a9-c00d4563bf4c.png" width="360" height="600" />
+<img src="https://user-images.githubusercontent.com/57958790/86683511-ffe08700-bfd7-11ea-9ea9-b1927f7cdf79.png" width="211" height="423" />
+<img src="https://user-images.githubusercontent.com/57958790/86683619-1ab2fb80-bfd8-11ea-8f44-a57d7de7167c.png" width="211" height="423" />
+<img src="https://user-images.githubusercontent.com/57958790/86683770-42a25f00-bfd8-11ea-9d3e-d1688b99e7c8.png" width="211" height="423" />
+<img src="https://user-images.githubusercontent.com/57958790/86683693-2e5e6200-bfd8-11ea-89f6-82286d7f7bf4.png" width="211" height="423" />
+<img src="https://user-images.githubusercontent.com/57958790/86683930-6fef0d00-bfd8-11ea-84a9-c00d4563bf4c.png" width="211" height="423" />
 </p>
 
 # System Requirements
